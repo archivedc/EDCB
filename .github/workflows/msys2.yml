@@ -22,9 +22,27 @@ jobs:
         cd Document/MinGW
         make
 
+    - uses: actions/upload-artifact@v1
+      with:
+        name: res
+        path: ${{ github.workspace }}
+  upload:
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+    - uses: actions/download-artifact@v3
+      with:
+        name: res
+        path: ~/result
+        
+    - uses: geekyeggo/delete-artifact@v1
+      with:
+        name: res
+    
     - uses: papeloto/action-zip@v1
       with:
-        files: .
+        files: ~/result
         dest: EDCB.zip
 
     - uses: adityak74/google-drive-upload-git-action@main
