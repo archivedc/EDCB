@@ -2,7 +2,6 @@ name: MSYS2 Build
 
 on:
   push:
-  pull_request:
 
 jobs:
   build:
@@ -12,9 +11,13 @@ jobs:
     - uses: actions/checkout@v2
 
     - uses: msys2/setup-msys2@v2
+      with:
+        update: true
+        install: >-
+          make
+          mingw-w64-x86_64-gcc
 
     - shell: msys2 {0}
       run: |
-        pacman -S --noconfirm make mingw-w64-x86_64-gcc
         cd Document/MinGW
         make
