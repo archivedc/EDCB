@@ -28,7 +28,7 @@ jobs:
         path: ${{ github.workspace }}
   upload:
     runs-on: ubuntu-latest
-    
+    needs: build
     steps:
     
     - uses: actions/download-artifact@v3
