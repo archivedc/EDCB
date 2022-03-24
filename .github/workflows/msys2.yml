@@ -45,8 +45,8 @@ jobs:
         files: ~/result
         dest: EDCB.zip
 
-    - uses: adityak74/google-drive-upload-git-action@main
+    - uses: wei/rclone@v1
+      env:
+        RCLONE_CONF: ${{ secrets.GDRIVE_RCLONE }}
       with:
-        folderId: 1HXQxN9yONioKj_MxKqPuCYUQlmWlEhKJ
-        filename: "EDCB.zip"
-        credentials: ${{ secrets.MKARAKI_GDRIVE_SRVACCOUNT }}
+        args: copy EDCB.zip gdrive:/EDCB/EDCB.zip
