@@ -21,3 +21,14 @@ jobs:
       run: |
         cd Document/MinGW
         make
+
+    - uses: papeloto/action-zip@v1
+      with:
+        files: .
+        dest: EDCB.zip
+
+    - uses: adityak74/google-drive-upload-git-action@latest
+      with:
+        folderId: 1HXQxN9yONioKj_MxKqPuCYUQlmWlEhKJ
+        filename: "EDCB.zip"
+        credentials: ${{ secrets.MKARAKI_GDRIVE_SRVACCOUNT }}
