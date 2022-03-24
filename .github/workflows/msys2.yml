@@ -1,0 +1,20 @@
+name: MSYS2 Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: msys2/setup-msys2@v2
+
+    - shell: msys2 {0}
+      run: |
+        pacman -S make mingw-w64-x86_64-gcc
+        cd Document/MinGW
+        make
