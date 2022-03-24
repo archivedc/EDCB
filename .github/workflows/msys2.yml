@@ -15,6 +15,6 @@ jobs:
 
     - shell: msys2 {0}
       run: |
-        pacman -S make mingw-w64-x86_64-gcc
+        pacman -S --noconfirm make mingw-w64-x86_64-gcc
         cd Document/MinGW
         make
