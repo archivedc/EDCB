@@ -34,7 +34,7 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: res
-        path: ~/result
+        path: result
         
     - uses: geekyeggo/delete-artifact@v1
       with:
@@ -44,4 +44,4 @@ jobs:
       env:
         RCLONE_CONF: ${{ secrets.GDRIVE_RCLONE }}
       with:
-        args: copy ~/result gdrive:/EDCB
+        args: copy result gdrive:/EDCB
