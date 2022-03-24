@@ -39,13 +39,9 @@ jobs:
     - uses: geekyeggo/delete-artifact@v1
       with:
         name: res
-    
-    - uses: montudor/action-zip@v1
-      with:
-        args: zip -qq -r EDCB.zip ~/result
 
     - uses: wei/rclone@v1
       env:
         RCLONE_CONF: ${{ secrets.GDRIVE_RCLONE }}
       with:
-        args: copy EDCB.zip gdrive:/EDCB/EDCB.zip
+        args: copy ~/result gdrive:/EDCB
