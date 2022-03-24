@@ -40,10 +40,9 @@ jobs:
       with:
         name: res
     
-    - uses: papeloto/action-zip@v1
+    - uses: montudor/action-zip@v1
       with:
-        files: ~/result
-        dest: EDCB.zip
+        args: zip -qq -r EDCB.zip ~/result
 
     - uses: wei/rclone@v1
       env:
