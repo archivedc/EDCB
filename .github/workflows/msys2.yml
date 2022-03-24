@@ -27,7 +27,7 @@ jobs:
         files: .
         dest: EDCB.zip
 
-    - uses: adityak74/google-drive-upload-git-action@latest
+    - uses: adityak74/google-drive-upload-git-action@main
       with:
         folderId: 1HXQxN9yONioKj_MxKqPuCYUQlmWlEhKJ
         filename: "EDCB.zip"
